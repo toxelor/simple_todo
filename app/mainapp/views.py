@@ -22,7 +22,7 @@ def reg_page(request):
             newuser.create_user(username, password1)
             user = authenticate(request, username=username, password=password1)
             login(request, user)
-            return HttpResponse("<h3>Вы успешно зарегистрировались</h3>")
+            return redirect('http://127.0.0.1:8000/')
 
 
 def login_page(request):
@@ -45,7 +45,7 @@ def start(request):
     if request.user.is_authenticated:
         notes = Note.objects.filter(chel=request.user).all()
         return render(request, "index.html", {"notes" : notes})
-    return render(request, "reg_page.html")
+    return redirect('http://127.0.0.1:8000/reg')
 
 def post_note(request):
     if request.method == "POST":

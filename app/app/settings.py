@@ -13,10 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import mysql.connector
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 
-secret = os.getenv()
+secret = os.getenv("SECRET")
+print(secret)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
