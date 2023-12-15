@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/login_page.css">
+    <link rel="icon" href="../static/check-solid.svg" type="image/x-icon">
+</head>
+<body>
+    <div class="blob"></div>
+    <div class="blur"></div>
+    <div class="container">
+        <form action="" method="post">
+            <p class="reg">Вход</p>
+            <input oninput="func()" class="name" type="text" name="username" placeholder="Имя" required>
+            <div class="password-div">
+                <input oninput="func()" class="password" type="password" name="password" placeholder="Пароль" required>
+                <input onclick="func()" id="visible" class="visible" type="checkbox">
+            </div>
+            <button class="button" type="submit">Войти</button>
+            {% csrf_token %}
+        </form>
+        <p class="error" id="error">
+            {{error}}
+        </p>
+        <script src="../static/script1.js"></script>
+    </div>
+</body>
+</html>
