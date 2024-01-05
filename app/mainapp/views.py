@@ -12,17 +12,21 @@ def reg_page(request):
         username = data.get("username")
         password1, password2 = data.get("password1"), data.get("password2")
         if username is None:
-            return HttpResponse("<h3>Введите имя пользователя</h3>")
+            return render(request, "reg_page.html", {'error': 'Введите имя пользователя'})
         elif password1 is None or password2 is None:
-            return HttpResponse("<h3>Введите пароль</h3>")
+            return render(request, "reg_page.html", {'error': 'Введите пароль'})
         elif password1 != password2:
-            return HttpResponse("<h3>Пароли должны совпадать</h3>")
+            return render(request, "reg_page.html", {'error': 'Пароли должны совпадать'})
         else:
-            newuser = Chel()
-            newuser.create_user(username, password1)
-            user = authenticate(request, username=username, password=password1)
-            login(request, user)
-            return redirect('http://127.0.0.1:8000/')
+            try:
+                newuser = Chel()
+                newuser.create_user(username, password1)
+                user = authenticate(request, username=username, password=password1)
+                login(request, user)
+                return redirect('http://127.0.0.1:8000/')
+            except Exception:
+                return render(request, "reg_page.html", {'error': 'Пользователь с таким логином уже существует'})
+
 
 
 def login_page(request):

@@ -16,15 +16,18 @@
     <div class="container">
         <p class="reg">Регистрация</p>
         <form action="" method="post">
-            <input class="name" type="text" name="username" placeholder="Имя" required autocomplete="jghuou475y92y4y4yf4fh">
+            <input onclick="func()" class="name" type="text" name="username" placeholder="Имя" required autocomplete="jghuou475y92y4y4yf4fh">
             <div class="password-div">
-                <input class="password" type="password" name="password1" placeholder="Пароль" required>
+                <input onclick="func()" class="password" type="password" name="password1" placeholder="Пароль" required>
                 <input onclick="func()" id="visible" class="visible" type="checkbox">
             </div>
-            <input class="password" type="password" name="password2" placeholder="Повторите пароль" required>
+            <input onclick="func()" class="password" type="password" name="password2" placeholder="Повторите пароль" required>
             <button class="button" type="submit">Зарегистрироваться</button>
             {% csrf_token %}
         </form>
+        <p class="error" id="error">
+            {{error}}
+        </p>
         <p class="log">Уже есть аккаунт? <a href="log">Войдите!</a></p>
         <script src="../static/script.js"></script>
     </div>
