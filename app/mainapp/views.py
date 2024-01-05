@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Chel, Note
 from django.contrib.auth.models import AnonymousUser
+from django.http import JsonResponse
 
 
 def reg_page(request):
